@@ -74,3 +74,6 @@ devenv*
 
 # 2to3 migration
 *.bak
+
+# Nix build outputs
+result

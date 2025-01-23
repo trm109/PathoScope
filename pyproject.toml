@@ -4,18 +4,17 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "PathoScope"
-version = "0.0.1"  # Replace with your VERSION if dynamic (see notes below)
-description = "A brief description of PathoScope"
-authors = [
-    { name = "Your Name", email = "youremail@example.com" }
-]
+version = "2.0.7"
+description = "Species identification and strain attribution with unassembled sequencing data "
 readme = "README.md"
-license = { text = "MIT" }  # Replace with your actual license
+license = { text = "GPL3" }
 keywords = ["pathoscope", "bioinformatics"]
+authors = [
+  {name = "W. Evan Johnson"},
+  {name = "Keith A. Crandall"},
+]
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent"
 ]
 dependencies = []
 

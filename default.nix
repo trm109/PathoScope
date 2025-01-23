@@ -8,7 +8,7 @@
 
 buildPythonPackage rec {
   pname = "pathoscope";
-  version = "0.1.0";
+  version = "2.0.7";
 
   src = ./.; 
 

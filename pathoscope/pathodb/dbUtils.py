@@ -27,7 +27,7 @@ import os, pickle
 try:
 	import MySQLdb as mdb
 except ImportError:
-	print "Running without mySQLdb library"
+	print("Running without mySQLdb library")
 
 #===============================================
 '''
@@ -132,7 +132,7 @@ def mysql_update_delim(con,gi,sub_gi,gene,locus_tag,protein_id,strand,stbp,edbp)
 	
 #=================================
 def init_mysql_innocentive(MySqlConf,reset_table):
-	HOST_NAME,MYSQL_PORT,USER,PASSWORD,DEFAULT_DB = range(5)
+	HOST_NAME,MYSQL_PORT,USER,PASSWORD,DEFAULT_DB = list(range(5))
 	inno_db = 'pathodb'
 	if reset_table==1:
 		MySqlConf[DEFAULT_DB]='information_schema'
@@ -142,21 +142,21 @@ def init_mysql_innocentive(MySqlConf,reset_table):
 		con = mdb.connect(host=MySqlConf[HOST_NAME],port=MySqlConf[MYSQL_PORT],user=MySqlConf[USER],passwd=MySqlConf[PASSWORD],db=MySqlConf[DEFAULT_DB])
 		#con = mdb.connect(hostname,user,passwd)
 	except:
-		print 'DB connection error. Make sure that you install pathoDB and your mysql credential is correct.'
+		print('DB connection error. Make sure that you install pathoDB and your mysql credential is correct.')
 		con = ''
 		return con
 	with con:
 		cur = con.cursor()
 		if reset_table==0:
 			query ='use %s' % inno_db
-			print query
+			print(query)
 			cur.execute(query)
 			return con
 
 		query = 'create database IF NOT EXISTS %s' % inno_db
 		cur.execute(query)
 		query ='use %s' % inno_db
-		print query
+		print(query)
 		cur.execute(query)
 		
 		#------------------
@@ -235,7 +235,7 @@ def mysql_close(con):
 		cursor=con.cursor()
 		cursor.close()
 		con.close()
-		print 'close db'
+		print('close db')
 
 		
 #=================================
@@ -261,12 +261,12 @@ def get_refname_product_mysql(con, gis):
 #=================================
 def taxon_rel_in_hash_mysql(con, workD):
 	
-	print 'storing taxon tree to hash memory...'
+	print('storing taxon tree to hash memory...')
 	
 	TOP_LEVEL=-1
-	[NODE, PARENT]=range(2)
+	[NODE, PARENT]=list(range(2))
 	#NOT_VISIT,INCLUDE,EXCLUDE = range(3)
-	(NOT_VISIT,_,_) = range(3)
+	(NOT_VISIT,_,_) = list(range(3))
 	tax=[-1,0]
 	
 	node2par_pyv=workD+'/nodes.dmp_hash.pyv'
@@ -295,7 +295,7 @@ def taxon_rel_in_hash_mysql(con, workD):
 					h_tax_node2par[tax[NODE]][0]=TOP_LEVEL
 
 		else:
-			print 'check your taxonomy table in pathodb database!'
+			print('check your taxonomy table in pathodb database!')
 
 		with open(node2par_pyv,'w') as f:
 			pickle.dump(h_tax_node2par,f)

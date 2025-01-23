@@ -223,7 +223,7 @@ def main():
 		################################################$
 		NAs = 'X'
 		if inputArgs.lib_dbuser!=NAs and inputArgs.lib_dbpasswd==NAs:
-			print 'if you want to use mysql, make sure that you install pathoDB and '
+			print('if you want to use mysql, make sure that you install pathoDB and ')
 			'also specify the corresponding mysql password correctly '
 			'(Ask your mysql admin to access the database).'
 		MysqlConf=(inputArgs.lib_dbhost,inputArgs.lib_dbport,inputArgs.lib_dbuser,inputArgs.lib_dbpasswd,inputArgs.lib_db)
@@ -301,12 +301,12 @@ def main():
 			print(cmd)
 			os.system(cmd)
 		else:
-			print("PathoQC (" + pathoqcfile + ") not found. Please download pathoqc_vXXX.tar.gz and "
-			"install it ("+pathoqcdir+") from http://sourceforge.net/projects/pathoscope/")
+			print(("PathoQC (" + pathoqcfile + ") not found. Please download pathoqc_vXXX.tar.gz and "
+			"install it ("+pathoqcdir+") from http://sourceforge.net/projects/pathoscope/"))
 	
 	elapsed = time() - start;
 	if inputArgs.verbose:
-		print "Total Elapsed Time: %d" % (elapsed)
+		print("Total Elapsed Time: %d" % (elapsed))
 
 if __name__ == "__main__":
 	main()

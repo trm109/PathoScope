@@ -27,7 +27,7 @@ args=parser.parse_args()
 #####################$
 #open mysql connection
 #####################$
-HOST_NAME,MYSQL_PORT,USER,PASSWORD,DEFAULT_DB = range(5)
+HOST_NAME,MYSQL_PORT,USER,PASSWORD,DEFAULT_DB = list(range(5))
 MySqlConf=[args.hostname,args.port,args.user,args.passwd,'']
 con = dbUtils.init_mysql_innocentive(MySqlConf,args.reset_table)
 

@@ -200,7 +200,7 @@ def buildOrganismsElement(h_annoT, h_ti_contig, hostTaxon, h_refRead, h_refScore
 	useMysql=True
 	con = None
 	#(hostname,port,user,passwd,defaultDb)=range(5)
-	(_,_,_,passwd,_)=range(5)
+	(_,_,_,passwd,_)=list(range(5))
 	if mySqlConf[passwd]==NAs: #then, we do not use mysql
 		useMysql=False
 	organismsObj = Organisms()

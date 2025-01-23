@@ -32,7 +32,7 @@ args=parser.parse_args()
 ################################################$
 NAs = 'X'
 if args.user!=NAs and args.user==NAs:
-	print 'if you want to use mysql, make sure that you install pathoDB and also specify the corresponding mysql password correclty(Ask to your mysql admin to access the database).'
+	print('if you want to use mysql, make sure that you install pathoDB and also specify the corresponding mysql password correclty(Ask to your mysql admin to access the database).')
 MysqlConf=(args.hostname,args.myport,args.user,args.passwd,'information_schema')
 taxon_ids=pathoLib.parse_input_app_build_nt_tgt(args.taxon_ids)
 (ncbiNt_ti,ncbiNt_invalid) = pathoLib.append_ti_into_fasta_app(args.reference,taxon_ids,args.subtax,MysqlConf,args.desc,args.online_search,args.label)

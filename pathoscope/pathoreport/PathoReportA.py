@@ -103,13 +103,13 @@ objective: this is a core def in retrieve_genome_annotation_from_sam. Having tem
 def get_genome_annotation_in_mysql(\
 	refConsFq, minContigLen, MySqlConf, h_annoT, h_ti_contig):
 	
-	START,END = range(2)
-	SUBGI,GENE,LOCS_TAG,PROID,STBP,EDBP = range(6)
+	START,END = list(range(2))
+	SUBGI,GENE,LOCS_TAG,PROID,STBP,EDBP = list(range(6))
 	NAs = 'X'
 	useMysql=True
 	con = None
 	#(hostname,port,user,passwd,defaultDb)=range(5)
-	(_,_,_,passwd,_)=range(5)
+	(_,_,_,passwd,_)=list(range(5))
 	if MySqlConf[passwd]==NAs: #then, we do not use mysql
 		useMysql=False
 	if useMysql:
@@ -206,12 +206,12 @@ objective: this is a core def in retrieve_genome_annotation_from_sam. Having tem
 def simple_genome_annotation(h_gisPerTi, mySqlConf, h_annoT):
 	
 	#SUBGI,GENE,LOCS_TAG,PROID,STBP,EDBP = range(6)
-	SUBGI,GENE,LOCS_TAG,PROID = range(4)
+	SUBGI,GENE,LOCS_TAG,PROID = list(range(4))
 	NAs = 'X'
 	useMysql=True
 	con = None
 	#(hostname,port,user,passwd,defaultDb)=range(5)
-	(_,_,_,passwd,_)=range(5)
+	(_,_,_,passwd,_)=list(range(5))
 	if mySqlConf[passwd]==NAs: #then, we do not use mysql
 		useMysql=False
 	if useMysql:
@@ -321,16 +321,16 @@ def write_tsv_report(finalReport, nR, nG, pi, genomes, initPi, bestHitInitial, b
 		bestHitFinal, bestHitFinalReads, level1Initial, level2Initial, level1Final, level2Final,
 		header, noCutOff):
 	with open(finalReport, 'wb') as oFp:
-		tmp = zip(pi,genomes, initPi, bestHitInitial, bestHitInitialReads, bestHitFinal, 
-			bestHitFinalReads, level1Initial, level2Initial, level1Final, level2Final)
+		tmp = list(zip(pi,genomes, initPi, bestHitInitial, bestHitInitialReads, bestHitFinal, 
+			bestHitFinalReads, level1Initial, level2Initial, level1Final, level2Final))
 		tmp = sorted(tmp,reverse=True) # Sorting based on Final Guess
-		x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11 = zip(*tmp)
+		x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11 = list(zip(*tmp))
 		for i in range(len(x10)):
 			if (not(noCutOff) and x1[i] < 0.01 and x10[i] <= 0 and x11[i] <= 0):
 				break
 			if i == (len(x10)-1):
 				i += 1
-		tmp = zip (x2[:i], x1[:i], x6[:i], x7[:i], x10[:i], x11[:i], x3[:i], x4[:i], x5[:i], x8[:i], x9[:i]) # Changing the column order here
+		tmp = list(zip(x2[:i], x1[:i], x6[:i], x7[:i], x10[:i], x11[:i], x3[:i], x4[:i], x5[:i], x8[:i], x9[:i])) # Changing the column order here
 		csv_writer = csv.writer(oFp, delimiter='\t')
 		header1 = ['Total Number of Aligned Reads:', nR, 'Total Number of Mapped Genomes:', nG]
 		csv_writer.writerow(header1)

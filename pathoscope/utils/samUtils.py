@@ -216,16 +216,16 @@ def sam2bam(samFile, samtoolsHome):
 	else:
 		samtoolsPath = samtoolsBin
 	cmd='%s view -bS %s > %s' % (samtoolsPath, samFile, bamfile)
-	print cmd
+	print(cmd)
 	os.system(cmd)
 	#samtools sorting .bam file
 	cmd='%s sort %s %s' % (samtoolsPath, bamfile, sortBamPrefix)
-	print cmd
+	print(cmd)
 	os.system(cmd)
 	sortBamFile = sortBamPrefix+'.bam'
 	#samtools index .bam file
 	cmd='%s index %s' % (samtoolsPath, sortBamFile)
-	print cmd
+	print(cmd)
 	os.system(cmd)
 	return (sortBamFile)
 
@@ -250,7 +250,7 @@ def samtools_consensus(bamFile, samtoolsHome):
 		refConsFq = base+'_cns.fq'
 	#[example]samtools mpileup -uD -m 3 -F 0.0002 -f NC_001803.fa 287A_cDNA_33_at_noBacHg-topReadId-em_bwasw_hit.bam | bcftools view -cg - | vcfutils.pl vcf2fq > cns.fq
 	cmd='%s mpileup -A -u -D -Q 1 %s | %s view -cg - | %s vcf2fq > %s' % (samtoolsPath, bamFile, bcftoolsPath, vcfutilsPath, refConsFq)
-	print cmd
+	print(cmd)
 	os.system(cmd)
 	return refConsFq
 

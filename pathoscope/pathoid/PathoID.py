@@ -154,36 +154,36 @@ def pathoscope_reassign(pathoIdOptions):
 	noCutOff = pathoIdOptions.noCutOff
 	
 	if float(os.stat(ali_file).st_size)<1.0:
-		print 'the alignment file [%s] is empty.' % ali_file
+		print('the alignment file [%s] is empty.' % ali_file)
 		sys.exit(1)
 
 	if ali_format == 'gnu-sam':
 		aliFormat = 0
 		if verbose:
-			print "parsing gnu-sam file/likelihood score/reads and mapped genomes..."
+			print("parsing gnu-sam file/likelihood score/reads and mapped genomes...")
 	elif ali_format == 'sam': #standard sam
 		aliFormat = 1
 		if verbose:
-			print "parsing sam file/likelihood score/reads and mapped genomes..."
+			print("parsing sam file/likelihood score/reads and mapped genomes...")
 	elif ali_format == 'bl8': #blat m8 format
 		aliFormat = 2
 		if verbose:
-			print "parsing bl8 file/likelihood score/reads and mapped genomes..."
+			print("parsing bl8 file/likelihood score/reads and mapped genomes...")
 	else:
-		print "unknown alignment format file..."
+		print("unknown alignment format file...")
 		return
 	(U, NU, genomes, reads) = conv_align2GRmat(ali_file,scoreCutoff,aliFormat)
 	
 	nG = len(genomes)
 	nR = len(reads)
 	if verbose:
-		print "EM iteration..."
-		print "(Genomes,Reads)=%dx%d" % (nG, nR)
-		print "Delta Change:"
+		print("EM iteration...")
+		print("(Genomes,Reads)=%dx%d" % (nG, nR))
+		print("Delta Change:")
 	
 	if out_matrix:
 		if verbose:
-			print "writing initial alignment ..."
+			print("writing initial alignment ...")
 		out_initial_align_matrix(genomes, reads, U, NU, expTag, ali_file, outdir)	
 
 	(bestHitInitialReads, bestHitInitial, level1Initial, level2Initial) = \
@@ -191,7 +191,7 @@ def pathoscope_reassign(pathoIdOptions):
 	
 	(initPi, pi, _, NU) = pathoscope_em(U, NU, genomes, maxIter, emEpsilon, verbose,
 		piPrior, thetaPrior)
-	tmp = zip(initPi,genomes)
+	tmp = list(zip(initPi,genomes))
 	tmp = sorted(tmp,reverse=True) #similar to sort row
 	
 	if out_matrix:
@@ -209,7 +209,7 @@ def pathoscope_reassign(pathoIdOptions):
 	if out_matrix:
 		finalGuess = outdir + os.sep + expTag + '-finGuess.txt'
 		oFp = open(finalGuess,'wb')
-		tmp = zip(pi,genomes)
+		tmp = list(zip(pi,genomes))
 		tmp = sorted(tmp,reverse=True)
 		csv_writer = csv.writer(oFp, delimiter='\t')
 		csv_writer.writerows(tmp)
@@ -326,7 +326,7 @@ def pathoscope_em(U, NU, genomes, maxIter, emEpsilon, verbose, piPrior, thetaPri
 		for k in range(len(pi)):
 			cutoff += abs(pi_old[k]-pi[k])
 		if verbose:
-			print "[%d]%g" % (i,cutoff)
+			print("[%d]%g" % (i,cutoff))
 		if (cutoff <= emEpsilon or lenNU==1):
 			break
 
@@ -453,7 +453,7 @@ def find_updated_score(NU, rIdx, gIdx):
 	try:
 		index = NU[rIdx][0].index(gIdx);
 	except ValueError:
-		print 'Value Error: %s' % gIdx
+		print('Value Error: %s' % gIdx)
 		return (0., 0.)
 	pscoreSum = 0.0
 	for pscore in NU[rIdx][1]:

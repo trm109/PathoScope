@@ -19,6 +19,6 @@ parser.add_argument('--version', action='version', version=VERSION)
 args=parser.parse_args()
 (tgt_fa,unclass_fa,host_fa)=psLib.build_innocentive_hg19_tgt_db(args.reference,args.gi2tax_dmp,args.cat_dmp,args.nodes_dmp,args.out_directory)
 
-print 'check %s' % tgt_fa
-print 'check %s' % unclass_fa
-print 'check %s' % host_fa
+print('check %s' % tgt_fa)
+print('check %s' % unclass_fa)
+print('check %s' % host_fa)

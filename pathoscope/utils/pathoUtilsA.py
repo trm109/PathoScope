@@ -104,10 +104,10 @@ def ex_wget_download(protozoaD):
 		cmd = '%scat %s/protozoa*.fna > %s/ncbi_protozoa.fa\n' % (cmd,protozoaD,protozoaD)
 		cmd = '%srm -rf %s/protozoa*.fna\n' % (cmd,protozoaD)
 		
-		print 'downloading data...'
-		print cmd
+		print('downloading data...')
+		print(cmd)
 		os.system(cmd)
-		print 'done'
+		print('done')
 	
 	return protozoaDfn 
 
@@ -137,12 +137,12 @@ def wget_download2(url,downFbase,downExt,downloadD,operation,outName):
 	
 	if operation=='select':
 		cmd='%s %s %s' % (cmd, extOp, downFn)
-		print cmd
+		print(cmd)
 		os.system(cmd)
 		outDfn='%s/%s' % (downloadD,outName)
 	else:
 		cmd = 'ls -la %s' % downloadD
-		print cmd
+		print(cmd)
 		os.system(cmd)
 		outDfn='X'
 		

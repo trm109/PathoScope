@@ -63,4 +63,4 @@ PathoID.pathoscope_reassign(inputArgs.out_matrix, inputArgs.verbose,
 	inputArgs.outdir, inputArgs.emEpsilon, inputArgs.maxIter, not(inputArgs.noalign))
 elapsed = time() - start;
 if inputArgs.verbose:
-	print "EM Elapsed Time: %d" % (elapsed)
+	print("EM Elapsed Time: %d" % (elapsed))

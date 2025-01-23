@@ -59,7 +59,7 @@ def processPathoMap(pathoMapOptions):
     ptargetRefFiles = []
     for filePath in pathoMapOptions.targetRefFiles:
         if pathoMapOptions.verbose:
-            print("Checking whether the file: " + filePath + " needs to be split")
+            print(("Checking whether the file: " + filePath + " needs to be split"))
         files = splitCheck(filePath, pathoMapOptions.MAX_REF_FILE_SIZE)
         for f in files:
             ptargetRefFiles.append(f)
@@ -67,7 +67,7 @@ def processPathoMap(pathoMapOptions):
     pfilterRefFiles = []
     for filePath in pathoMapOptions.filterRefFiles:
         if pathoMapOptions.verbose:
-            print("Checking whether the file: " + filePath + " needs to be split")
+            print(("Checking whether the file: " + filePath + " needs to be split"))
         files = splitCheck(filePath, pathoMapOptions.MAX_REF_FILE_SIZE)
         for f in files:
             pfilterRefFiles.append(f)
@@ -84,7 +84,7 @@ def processPathoMap(pathoMapOptions):
         (base, _) = os.path.splitext(tail)
         bowtie2Options.btIndexPrefix = base
         if pathoMapOptions.verbose:
-            print("Creating bowtie2 index for: " + filePath)
+            print(("Creating bowtie2 index for: " + filePath))
         bowtie2Wrap.create_bowtie2_index(bowtie2Options)
         procPathoMapOptions.targetIndexPrefixes.append(base)
     for filePath in pfilterRefFiles:
@@ -93,7 +93,7 @@ def processPathoMap(pathoMapOptions):
         (base, _) = os.path.splitext(tail)
         bowtie2Options.btIndexPrefix = base
         if pathoMapOptions.verbose:
-            print("Creating bowtie2 index for: " + filePath)
+            print(("Creating bowtie2 index for: " + filePath))
         bowtie2Wrap.create_bowtie2_index(bowtie2Options)
         procPathoMapOptions.filterIndexPrefixes.append(base)
 
@@ -128,7 +128,7 @@ def processPathoMap(pathoMapOptions):
         )
         bowtie2Options.outAlignFile = procPathoMapOptions.exp_tag + indexPrefix + ".sam"
         if pathoMapOptions.verbose:
-            print("Creating bowtie2 alignment: " + bowtie2Options.outAlignFile)
+            print(("Creating bowtie2 alignment: " + bowtie2Options.outAlignFile))
         bowtie2Wrap.run_bowtie2(bowtie2Options)
         procPathoMapOptions.targetAlignFiles.append(
             procPathoMapOptions.outDir + os.sep + bowtie2Options.outAlignFile
@@ -143,7 +143,7 @@ def processPathoMap(pathoMapOptions):
             + "appendAlign.sam"
         )
         if pathoMapOptions.verbose:
-            print("Appending alignment files to: " + appendAlignFile)
+            print(("Appending alignment files to: " + appendAlignFile))
         append_sam_file(appendAlignFile, procPathoMapOptions.targetAlignFiles)
     else:
         appendAlignFile = procPathoMapOptions.targetAlignFiles[0]
@@ -171,7 +171,7 @@ def processPathoMap(pathoMapOptions):
                 procPathoMapOptions.exp_tag + indexPrefix + ".sam"
             )
             if pathoMapOptions.verbose:
-                print("Creating bowtie2 alignment: " + bowtie2Options.outAlignFile)
+                print(("Creating bowtie2 alignment: " + bowtie2Options.outAlignFile))
             bowtie2Wrap.run_bowtie2(bowtie2Options)
             procPathoMapOptions.filterAlignFiles.append(
                 procPathoMapOptions.outDir + os.sep + bowtie2Options.outAlignFile
@@ -181,7 +181,7 @@ def processPathoMap(pathoMapOptions):
         procPathoMapOptions.outDir + os.sep + procPathoMapOptions.outAlignFile
     )
     if pathoMapOptions.verbose:
-        print("Filtering and creating the alignment: " + outAlignFile)
+        print(("Filtering and creating the alignment: " + outAlignFile))
     if len(procPathoMapOptions.filterAlignFiles) > 0:
         filter_alignment(
             appendAlignFile, procPathoMapOptions.filterAlignFiles, outAlignFile

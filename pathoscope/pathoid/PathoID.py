@@ -158,7 +158,7 @@ def pathoscope_reassign(pathoIdOptions):
     noCutOff = pathoIdOptions.noCutOff
 
     if float(os.stat(ali_file).st_size) < 1.0:
-        print("the alignment file [%s] is empty." % ali_file)
+        print(("the alignment file [%s] is empty." % ali_file))
         sys.exit(1)
 
     if ali_format == "gnu-sam":
@@ -182,7 +182,7 @@ def pathoscope_reassign(pathoIdOptions):
     nR = len(reads)
     if verbose:
         print("EM iteration...")
-        print("(Genomes,Reads)=%dx%d" % (nG, nR))
+        print(("(Genomes,Reads)=%dx%d" % (nG, nR)))
         print("Delta Change:")
 
     if out_matrix:
@@ -366,7 +366,7 @@ def pathoscope_em(U, NU, genomes, maxIter, emEpsilon, verbose, piPrior, thetaPri
         for k in range(len(pi)):
             cutoff += abs(pi_old[k] - pi[k])
         if verbose:
-            print("[%d]%g" % (i, cutoff))
+            print(("[%d]%g" % (i, cutoff)))
         if cutoff <= emEpsilon or lenNU == 1:
             break
 
@@ -496,7 +496,7 @@ def find_updated_score(NU, rIdx, gIdx):
     try:
         index = NU[rIdx][0].index(gIdx)
     except ValueError:
-        print("Value Error: %s" % gIdx)
+        print(("Value Error: %s" % gIdx))
         return (0.0, 0.0)
     pscoreSum = 0.0
     for pscore in NU[rIdx][1]:

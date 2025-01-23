@@ -1,23 +1,25 @@
-{ pkgs ? import <nixpkgs> {} }:
+{
+  lib,
+  buildPythonPackage,
+  setuptools,
+  wheel,
+  bowtie2,
+}:
 
-pkgs.python3.pkgs.buildPythonPackage rec {
+buildPythonPackage rec {
   pname = "pathoscope";
   version = "0.1.0";
 
   src = ./.; 
 
-  # List of Python dependencies
-  propagatedBuildInputs = [ 
-    pkgs.python312Packages.setuptools
+  format = "pyproject";
+  build-system = [
+    setuptools
+    wheel
   ];
 
-  # Optional: Check inputs for testing
-  checkInputs = [
-    pkgs.python3.pkgs.pytest
+  dependencies = [
+    setuptools
+    bowtie2
   ];
-  format = "pyproject";
-  # Optional: Override default build steps 
-  # buildPhase = '' 
-  # installPhase = '' 
-  # checkPhase = ''
 }

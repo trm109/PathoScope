@@ -1,27 +1,30 @@
 [build-system]
-requires = ["setuptools>=42", "wheel"]
+requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "PathoScope"
-version = "0.0.1"  # Replace this with the actual value of VERSION from your Python module
-description = "PathoScope Project"
+version = "0.0.1"  # Replace with your VERSION if dynamic (see notes below)
+description = "A brief description of PathoScope"
 authors = [
-    { name = "Your Name", email = "your.email@example.com" }
+    { name = "Your Name", email = "youremail@example.com" }
 ]
 readme = "README.md"
-license = { file = "LICENSE" }
-requires-python = ">=3.6"
-dependencies = []  # Add any install requirements here
+license = { text = "MIT" }  # Replace with your actual license
+keywords = ["pathoscope", "bioinformatics"]
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",  # Replace with your license
+    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent"
 ]
+dependencies = []
 
-[tool.setuptools]
-packages = { find = {} }
-include-package-data = true
+[tool.setuptools.packages.find]
+where = ["."]
+exclude = ["tests"]
 
-[tool.setuptools.package-data]
-"*" = ["*"]  # Include package data files (if any)
+[project.scripts]
+pathoscope = "pathoscope.pathoscope2:main"
+
+[project.optional-dependencies]
+dev = ["pytest", "black"]

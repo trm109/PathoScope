@@ -59,7 +59,7 @@ def run_bowtie2(bowtie2Options):
     if os.path.exists(bowtie2Options.outAlignFile):
         if bowtie2Options.verbose:
             print(
-                "Bowtie2 alignment file already exist: " + bowtie2Options.outAlignFile
+                ("Bowtie2 alignment file already exist: " + bowtie2Options.outAlignFile)
             )
         return align_exist
 
@@ -110,7 +110,7 @@ def create_bowtie2_index(bowtie2Options):
     btIndexPath_large = btIndexPrefixPath + ".1.bt2l"
     if os.path.exists(btIndexPath) or os.path.exists(btIndexPath_large):
         if bowtie2Options.verbose:
-            print("Bowtie2 index already exist for: " + btIndexPath)
+            print(("Bowtie2 index already exist for: " + btIndexPath))
         return index_exist
     btIndexerPath = bowtie2Options.btIndexer
     if bowtie2Options.btHome is not None:

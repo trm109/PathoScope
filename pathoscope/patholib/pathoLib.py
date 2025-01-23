@@ -448,7 +448,7 @@ def check_if_nt_has_ti(nt):
     mObj = re.search(r">ti\|(\d+)\|", i)
     if mObj:
         hasTiF = True
-        print("%s has already taxonomy id." % nt)
+        print(("%s has already taxonomy id." % nt))
     fp.close()
     return hasTiF
 
@@ -470,7 +470,7 @@ def append_ti_into_fasta_mysql(
     if Ti2sel[0] == GET_ALL_TAX:
         get_all_taxF = True
 
-    print("selecting some reference genome sequences in [%s]" % nt)
+    print(("selecting some reference genome sequences in [%s]" % nt))
 
     if invalSelFlag:
         fp1 = open(noTaxIdFa, "w")
@@ -526,10 +526,10 @@ def append_ti_into_fasta_mysql(
                                     % (ti, organismName, r.id, r.seq)
                                 )
 
-    print("check %s" % nt2)
+    print(("check %s" % nt2))
     if invalSelFlag:
         fp1.close()
-        print("check %s" % noTaxIdFa)
+        print(("check %s" % noTaxIdFa))
     print("done.")
 
 
@@ -578,7 +578,7 @@ def append_ti_into_fasta_hash(
     if os.path.exists(nt2):
         return (nt2, noTaxIdFa)
 
-    print("selecting some reference genome sequences in [%s]..." % nt)
+    print(("selecting some reference genome sequences in [%s]..." % nt))
 
     if invalSelFlag:
         fp1 = open(noTaxIdFa, "w")
@@ -631,10 +631,10 @@ def append_ti_into_fasta_hash(
                             else:
                                 fp2.write(">ti|%d|%s\n%s\n" % (ti, r.id, r.seq))
 
-    print("check %s" % nt2)
+    print(("check %s" % nt2))
     if invalSelFlag:
         fp1.close()
-        print("check %s" % noTaxIdFa)
+        print(("check %s" % noTaxIdFa))
     print("done.")
 
 
@@ -1213,7 +1213,7 @@ def gb2prepare_load_data_file(MySqlConf, tiNtDfn, downloadD):
             f += 1
         else:
             continue
-        print("processing %s[%d/%d]..." % (gbFlatFn, f, F))
+        print(("processing %s[%d/%d]..." % (gbFlatFn, f, F)))
 
         fp = open(gbFlatTmp, "r")
         # skipping header
@@ -1287,7 +1287,7 @@ def gb2prepare_load_data_file(MySqlConf, tiNtDfn, downloadD):
         fp.close()
         tock = time()
         elapsed = tock - tick
-        print("elasped time:[%g]" % elapsed)
+        print(("elasped time:[%g]" % elapsed))
 
     fps[0].close()
     fps[1].close()
@@ -1297,7 +1297,7 @@ def gb2prepare_load_data_file(MySqlConf, tiNtDfn, downloadD):
     con = dbUtils.init_mysql_innocentive(MySqlConf, 0)
     with con:
 
-        print("loading %s..." % (gi_annoT_fn))
+        print(("loading %s..." % (gi_annoT_fn)))
         cur = con.cursor()
         mysql_load_cmd = (
             "load data local infile '%s' into table giAnnoT fields terminated by '\\t'"
@@ -1309,7 +1309,7 @@ def gb2prepare_load_data_file(MySqlConf, tiNtDfn, downloadD):
         cur.execute(mysql_idx_cmd)
         print("done.")
 
-        print("loading %s..." % (delimT_fn))
+        print(("loading %s..." % (delimT_fn)))
         cur = con.cursor()
         mysql_load_cmd = (
             "load data local infile '%s' into table giDelimT fields terminated by '\\t'"
@@ -1330,7 +1330,7 @@ def gb2prepare_load_data_file(MySqlConf, tiNtDfn, downloadD):
             add_dbsize2taxonT(tiNtDfn, taxT_fn)
         print("done.")
 
-        print("loading %s..." % (taxT_fn))
+        print(("loading %s..." % (taxT_fn)))
         cur = con.cursor()
         mysql_load_cmd = (
             "load data local infile '%s' into table cj_taxonT fields terminated by '\\t'"

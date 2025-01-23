@@ -116,4 +116,4 @@ PathoID.pathoscope_reassign(
 )
 elapsed = time() - start
 if inputArgs.verbose:
-    print("EM Elapsed Time: %d" % (elapsed))
+    print(("EM Elapsed Time: %d" % (elapsed)))

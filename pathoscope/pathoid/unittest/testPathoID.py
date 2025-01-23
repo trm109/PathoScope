@@ -48,7 +48,7 @@ class TestPathoscopeFunctions(unittest.TestCase):
         (U, NU, genomes, reads) = PathoID.conv_align2GRmat(
             ali_file, self.scoreCutoff, aliFormat
         )
-        print(U, NU, genomes, reads)
+        print((U, NU, genomes, reads))
         score = 7036818.21  # Expected score from the alignment file
         expectedU = {0: [0, score], 1: [0, score]}
         self.assertEqual(
@@ -120,7 +120,7 @@ class TestPathoscopeFunctions(unittest.TestCase):
         (U, NU, genomes, reads) = PathoID.conv_align2GRmat(
             ali_file, self.scoreCutoff, aliFormat
         )
-        print(U, NU, genomes, reads)
+        print((U, NU, genomes, reads))
         score = 7036818.21  # Expected score from the alignment file
         expectedU = {}
         self.assertEqual(expectedU, U, "Failed bl8 Example 2 Unique Reads Assertion")
@@ -190,7 +190,7 @@ class TestPathoscopeFunctions(unittest.TestCase):
         (U, NU, genomes, reads) = PathoID.conv_align2GRmat(
             ali_file, self.scoreCutoff, aliFormat
         )
-        print(U, NU, genomes, reads)
+        print((U, NU, genomes, reads))
         score = 7036818.21  # Expected score from the alignment file
         expectedU = {
             0: [0, score],
@@ -277,7 +277,7 @@ class TestPathoscopeFunctions(unittest.TestCase):
         (U, NU, genomes, reads) = PathoID.conv_align2GRmat(
             ali_file, self.scoreCutoff, aliFormat
         )
-        print(U, NU, genomes, reads)
+        print((U, NU, genomes, reads))
         score = 7036818.21  # Expected score from the alignment file
         expectedU = {2: [0, score]}
         self.assertEqual(
@@ -350,7 +350,7 @@ class TestPathoscopeFunctions(unittest.TestCase):
         (U, NU, genomes, reads) = PathoID.conv_align2GRmat(
             ali_file, self.scoreCutoff, aliFormat
         )
-        print(U, NU, genomes, reads)
+        print((U, NU, genomes, reads))
         expectedU = {0: [0, 1.0], 1: [0, 1.0]}
         self.assertEqual(
             len(expectedU),
@@ -426,7 +426,7 @@ class TestPathoscopeFunctions(unittest.TestCase):
         (U, NU, genomes, reads) = PathoID.conv_align2GRmat(
             ali_file, self.scoreCutoff, aliFormat
         )
-        print(U, NU, genomes, reads)
+        print((U, NU, genomes, reads))
         expectedU = {}
         self.assertEqual(expectedU, U, "Failed gnusam Example 2 Unique Reads Assertion")
         expectedNU = {
@@ -497,7 +497,7 @@ class TestPathoscopeFunctions(unittest.TestCase):
         (U, NU, genomes, reads) = PathoID.conv_align2GRmat(
             ali_file, self.scoreCutoff, aliFormat
         )
-        print(U, NU, genomes, reads)
+        print((U, NU, genomes, reads))
         expectedU = {0: [0, 1.0], 1: [0, 1.0], 2: [0, 1.0], 3: [1, 1.0], 4: [1, 1.0]}
         self.assertEqual(
             len(expectedU),
@@ -582,7 +582,7 @@ class TestPathoscopeFunctions(unittest.TestCase):
         (U, NU, genomes, reads) = PathoID.conv_align2GRmat(
             ali_file, self.scoreCutoff, aliFormat
         )
-        print(U, NU, genomes, reads)
+        print((U, NU, genomes, reads))
         expectedU = {2: [1, 0.99]}
         self.assertEqual(
             len(expectedU),
@@ -659,7 +659,7 @@ class TestPathoscopeFunctions(unittest.TestCase):
         (U, NU, genomes, reads) = PathoID.conv_align2GRmat(
             ali_file, self.scoreCutoff, aliFormat
         )
-        print(U, NU, genomes, reads)
+        print((U, NU, genomes, reads))
         scaledScore = 2.6881171418161356e43  # Expected Re-scaled score
         expectedU = {0: [0, scaledScore], 1: [0, scaledScore]}
         self.assertEqual(
@@ -746,7 +746,7 @@ class TestPathoscopeFunctions(unittest.TestCase):
         (U, NU, genomes, reads) = PathoID.conv_align2GRmat(
             ali_file, self.scoreCutoff, aliFormat
         )
-        print(U, NU, genomes, reads)
+        print((U, NU, genomes, reads))
         scaledScore = 2.6881171418161356e43  # Expected Re-scaled score
         expectedU = {}
         self.assertEqual(expectedU, U, "Failed sam Example 2 Unique Reads Assertion")
@@ -831,7 +831,7 @@ class TestPathoscopeFunctions(unittest.TestCase):
         (U, NU, genomes, reads) = PathoID.conv_align2GRmat(
             ali_file, self.scoreCutoff, aliFormat
         )
-        print(U, NU, genomes, reads)
+        print((U, NU, genomes, reads))
         scaledScore = 2.6881171418161356e43  # Expected Re-scaled score
         expectedU = {
             0: [0, scaledScore],
@@ -933,7 +933,7 @@ class TestPathoscopeFunctions(unittest.TestCase):
         (U, NU, genomes, reads) = PathoID.conv_align2GRmat(
             ali_file, self.scoreCutoff, aliFormat
         )
-        print(U, NU, genomes, reads)
+        print((U, NU, genomes, reads))
         scaledScore = 2.6881171418161356e43  # Expected Re-scaled score
         expectedU = {2: [0, scaledScore]}
         self.assertEqual(
@@ -1035,7 +1035,7 @@ class TestPathoscopeFunctions(unittest.TestCase):
             self.piPrior,
             self.thetaPrior,
         )
-        print(initPi, pi, theta, NU)
+        print((initPi, pi, theta, NU))
         expectedInitPi = [0.6, 0.2, 0.2]
         for j in range(len(expectedInitPi)):
             self.assertAlmostEqual(
@@ -1137,7 +1137,7 @@ class TestPathoscopeFunctions(unittest.TestCase):
             self.piPrior,
             self.thetaPrior,
         )
-        print(initPi, pi, theta, NU)
+        print((initPi, pi, theta, NU))
         expectedInitPi = [0.2857, 0.4286, 0.2857]
         for j in range(len(expectedInitPi)):
             self.assertAlmostEqual(
@@ -1245,7 +1245,7 @@ class TestPathoscopeFunctions(unittest.TestCase):
             self.piPrior,
             self.thetaPrior,
         )
-        print(initPi, pi, theta, NU)
+        print((initPi, pi, theta, NU))
         expectedInitPi = [0.5, 0.375, 0.125]
         for j in range(len(expectedInitPi)):
             self.assertAlmostEqual(
@@ -1329,7 +1329,7 @@ class TestPathoscopeFunctions(unittest.TestCase):
             self.piPrior,
             self.thetaPrior,
         )
-        print(initPi, pi, theta, NU)
+        print((initPi, pi, theta, NU))
         expectedInitPi = [0.4, 0.3, 0.2, 0.1]
         for j in range(len(expectedInitPi)):
             self.assertAlmostEqual(
@@ -1393,7 +1393,7 @@ class TestPathoscopeFunctions(unittest.TestCase):
             self.piPrior,
             self.thetaPrior,
         )
-        print(initPi, pi, theta, NU)
+        print((initPi, pi, theta, NU))
         expectedInitPi = [1.0, 0.0, 0.0, 0.0]
         expectedPi = [1.0, 0.0, 0.0, 0.0]
         expectedTheta = [0.0, 0.0, 0.0, 0.0]

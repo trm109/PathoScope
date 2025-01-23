@@ -766,7 +766,7 @@ def main():
 
     elapsed = time() - start
     if inputArgs.verbose:
-        print("Total Elapsed Time: %d" % (elapsed))
+        print(("Total Elapsed Time: %d" % (elapsed)))
 
 
 if __name__ == "__main__":

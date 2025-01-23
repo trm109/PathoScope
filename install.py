@@ -6,6 +6,7 @@ try:
 except ImportError:
     has_setuptools = False
 
+
 def main():
     if not has_setuptools:
         print("Couldn't import setuptools. Bootstrapping a user-site setuptools ")
@@ -14,6 +15,7 @@ def main():
     print("Installing PathoScope")
     subprocess.check_call("python setup.py develop --user", shell=True)
     import pathoscope
+
 
 if __name__ == "__main__":
     main()

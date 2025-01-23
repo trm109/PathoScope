@@ -1,6 +1,9 @@
 PathoScope 2.0
 ==========
 
+### ISSUES:
+- (@saik): This package is totally borked and does not work with Python3... A migration is needed for secure use, as Python2 is no longer considered secure.
+
 ### Pathoscope: Species identification and strain attribution with unassembled sequencing data
 
 [![install with bioconda](https://img.shields.io/badge/install%20with-bioconda-brightgreen.svg?style=flat)](http://bioconda.github.io/recipes/pathoscope/README.html)

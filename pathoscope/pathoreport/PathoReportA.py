@@ -463,7 +463,7 @@ def write_tsv_report(
     header,
     noCutOff,
 ):
-    with open(finalReport, "wb") as oFp:
+    with open(finalReport, "w") as oFp:  # 2 -> 3 we are writing as str
         tmp = list(
             zip(
                 pi,

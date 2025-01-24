@@ -194,8 +194,8 @@ def writeElementXML(element, elementXMLFile):
     xmlString = ET.tostring(element, encoding="UTF-8", method="xml")
     xml1 = xml.dom.minidom.parseString(xmlString)
     prettyXmlString = xml1.toprettyxml(encoding="UTF-8")
-    # print prettyXmlString #debug
-    with open(elementXMLFile, "w") as f:
+    # print(prettyXmlString.decode("utf-8"))  # debug
+    with open(elementXMLFile, "wb") as f:  # 2 -> 3.12 Writing the file via bytes.
         f.write(prettyXmlString)
     # tree = ET.ElementTree(element)
     # ET.dump(tree)

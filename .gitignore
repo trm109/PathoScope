@@ -77,3 +77,6 @@ devenv*
 
 # Nix build outputs
 result
+
+# Large SAM files
+*.sam

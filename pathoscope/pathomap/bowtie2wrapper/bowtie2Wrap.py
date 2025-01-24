@@ -68,7 +68,7 @@ def run_bowtie2(bowtie2Options):
         btBinPath = bowtie2Options.btHome + os.sep + bowtie2Options.btBin
     outAlignFilePath = bowtie2Options.outDir + os.sep + bowtie2Options.outAlignFile
     if bowtie2Options.bothReadFlag:  # newly added
-        cmd = "-v %s -x %s -1 %s -2 %s -U %s -p %s %s -S %s" % (
+        cmd = "%s -x %s -1 %s -2 %s -U %s -p %s %s -S %s" % (
             btBinPath,
             bowtie2Options.btIndexPrefix,
             bowtie2Options.readFilePair1,
@@ -79,7 +79,7 @@ def run_bowtie2(bowtie2Options):
             outAlignFilePath,
         )
     if bowtie2Options.pairedReadFlag:
-        cmd = "-v %s -x %s -1 %s -2 %s -p %s %s -S %s" % (
+        cmd = "%s -x %s -1 %s -2 %s -p %s %s -S %s" % (
             btBinPath,
             bowtie2Options.btIndexPrefix,
             bowtie2Options.readFilePair1,
@@ -89,7 +89,7 @@ def run_bowtie2(bowtie2Options):
             outAlignFilePath,
         )
     elif bowtie2Options.singleReadFlag:  # newly added
-        cmd = "-v %s -x %s -U %s -p %s %s -S %s" % (
+        cmd = "%s -x %s -U %s -p %s %s -S %s" % (
             btBinPath,
             bowtie2Options.btIndexPrefix,
             bowtie2Options.readFile,

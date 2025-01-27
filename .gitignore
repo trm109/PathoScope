@@ -75,8 +75,20 @@ devenv*
 # 2to3 migration
 *.bak
 
-# Nix build outputs
-result
+# Exclude inputs/outputs but keep blank folder
+data/*
+!data/.gitkeep
+results/*
+!results/.gitkeep
 
 # Large SAM files
 *.sam
+
+# Large bt2 files
+bt2/
+
+# Testing on data
+pathoscope/run_example.sh
+pathoscope/run_M399.sh
+pathoscope/run_all.log
+

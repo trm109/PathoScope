@@ -2,11 +2,11 @@ PathoScope 2.0
 ==========
 
 # FORK README
-### [@trm109](https://github.com/trm109):
-**I am not in the field of biology/research/etc**, I am a CS major. My girlfriend needed to use this package, and it was in a fairly bad state; Python2.7(Insecure, deprecated), not POSIX compliant, and not packaged through any common means. Additionally, for work we both use the declarative Nix package manager as it makes it much harder for this exact situation to happen, so I packaged it for nix (see the shell.nix). Additional work and testing is necessary for this package to be considered good enough to merge in. As I understand, the original source is completely abandonded so merging may be an impossibility. I will attempt to package this officially through the nixpkgs channel at a later date.
-
 ### [@saramaiah](https://github.com/saramaiah):
 I am a research assistant developing bioinformatics techniques for my lab. I am not a professional in the space of software engineering, but I do have significant experience in microbiome research and other relevant biological sciences. I took over for the project after [@trm109](https://github.com/trm109). I have been responsible for testing, tweaks after testing, and switching over to a nix flake. I will also be responsible for future maintenance of the package. Currently, the only functions verified through testing are `pathoscope MAP` and `pathoscope REP`.The original documentation for PathoScope 2.0.7 is below.
+
+### [@trm109](https://github.com/trm109):
+**I am not in the field of biology/research/etc**, I am a CS major. My girlfriend needed to use this package, and it was in a fairly bad state; Python2.7(Insecure, deprecated), not POSIX compliant, and not packaged through any common means. Additionally, for work we both use the declarative Nix package manager as it makes it much harder for this exact situation to happen, so I packaged it for nix (see the shell.nix). Additional work and testing is necessary for this package to be considered good enough to merge in. As I understand, the original source is completely abandonded so merging may be an impossibility.
 
 # Pathoscope: Species identification and strain attribution with unassembled sequencing data
 
